@@ -1,9 +1,0 @@
-
-# vpn needed - useast2
-[[configs]]
-type = "azure_llm"
-model_name = "gpt-4o"
-deployment_name = "gpt-4o"
-api_base = "https://npgo.openai.azure.com/"
-api_key = "c183eac328ff476891243a6c44042484"
-api_version = "2024-02-15-preview"
