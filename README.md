@@ -19,6 +19,8 @@ This project leverages Azure OpenAI services to perform various tasks, including
 ## Setup Instructions
 
 ### Clone the Repository
+git clone https://github.com/ralouta/genai-training.git
+cd genai-training
 
 ### Set Up the Python Environment
 Run the `setup.bat` script to set up the Python environment and install dependencies:
