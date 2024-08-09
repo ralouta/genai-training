@@ -1,0 +1,9 @@
+openai
+toml
+chromadb
+langchain_openai
+langchain_community
+langchain_chroma
+gpt4all
+pypdf
+docx2txt
