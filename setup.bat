@@ -1,4 +1,13 @@
 @echo off
+:: Get the current user's profile directory
+set USERPROFILE=%USERPROFILE%
+
+:: Construct the path to the conda envs directory
+set CONDA_ENVS_PATH=%USERPROFILE%\AppData\Local\ESRI\conda\envs
+
+:: Change directory to the conda envs directory
+cd /d "%CONDA_ENVS_PATH%"
+
 setlocal enabledelayedexpansion
 
 REM Ensure arcgispro_path is set
@@ -23,7 +32,7 @@ REM Activate the arcgispro-py3 environment
 call "!arcgispromodified_path!"
 
 REM Clone the existing arcgispro-py3 environment to genai-py3
-call conda create --name genai-auto-py3 --clone arcgispro-py3 --pinned
+call conda create --name genai-auto-py3 --clone arcgispro-py3
 
 call proswap genai-auto-py3
 
