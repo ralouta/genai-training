@@ -1,7 +1,10 @@
 @echo off
 
-REM Save the current directory (the directory of the batch file)
-set ORIGINAL_DIR=%~dp0
+
+REM Save the current directory (the directory where the batch file was run from)
+set "ORIGINAL_DIR=%CD%"
+echo Original directory: "%ORIGINAL_DIR%"
+
 
 REM Get the current user's profile directory
 set USERPROFILE=%USERPROFILE%
@@ -42,6 +45,9 @@ call proswap genai-auto-py3
 
 REM  Change back to the original directory
 cd /d "%ORIGINAL_DIR%"
+
+:: Print the current directory to verify
+echo Back in directory: %CD%
 
 REM Install dependencies from requirements.txt
 call pip install -r requirements.txt
