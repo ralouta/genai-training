@@ -19,6 +19,9 @@ This project leverages Azure OpenAI services to perform various tasks, including
 ## Setup Instructions
 
 ### Clone the Repository
+
+Connect to vpn US-East
+Install git
 git clone https://github.com/ralouta/genai-training.git
 cd genai-training
 

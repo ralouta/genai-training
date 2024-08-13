@@ -7,3 +7,4 @@ langchain_chroma
 gpt4all
 pypdf
 docx2txt
+PyMuPDF
