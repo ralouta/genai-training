@@ -6,8 +6,9 @@ This project leverages Azure OpenAI services to perform various tasks, including
 ### Clone the Repository
 
 1. Connect to esri vpn US-East
-2. Install [git](https://git-scm.com/downloads)
-3. Run the following commands:
+2. Install [Visual Studio Code](https://code.visualstudio.com/) if you don't have it.
+3. Install [git](https://git-scm.com/downloads)
+4. Run the following commands:
    ```sh
    git clone https://github.com/ralouta/genai-training.git
    cd genai-training
