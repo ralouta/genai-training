@@ -1,9 +1,8 @@
-
-# vpn needed - useast2
+# se led training configuration
 [[configs]]
 type = "azure_llm"
 model_name = "gpt-4o"
 deployment_name = "gpt-4o"
-api_base = ""
+api_endpoint = ""
 api_key = ""
-api_version = "2024-02-15-preview"
+api_version = "2024-06-01"

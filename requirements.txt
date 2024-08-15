@@ -8,3 +8,5 @@ gpt4all
 pypdf
 docx2txt
 PyMuPDF
+arcgis
+pandasai

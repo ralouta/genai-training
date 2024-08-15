@@ -1,2 +1,16 @@
+# python
+.venv
+__pycache__
+models/__pycache__/*.pyc
+*.pyc
+cache
+
 genai-auto-py3
 Examples/config.toml
+
+local-config.toml
+
+.DS_Store
+*.log
+
+.mypy_cache
