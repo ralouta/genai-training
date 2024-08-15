@@ -1,10 +1,8 @@
 import fitz  # PyMuPDF
 from langchain_core.messages import HumanMessage
 from langchain_core.output_parsers import JsonOutputParser
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-
 from models.pdf_information import PDFInformation
+
 
 class PDFExtractChain:
 
@@ -54,4 +52,24 @@ class PDFExtractChain:
         return text
 
     def extract_from_pdf(self):
-        return self.chain.invoke(self.prompt_messages)
+        response = self.chain.invoke(self.prompt_messages)
+        return PDFInformation(**response)
+
+    def format_for_attachment(self, pdf_information):
+        prompt = """
+        Given a JSON object that describes a PDF, summarize the information in English. 
+        Do not mention the JSON object or its keys in your summary.
+        Do not refer to the JSON object at all in your summary.
+        Do not provide any other commentary or information.
+        """
+        messages = [
+            ("system", prompt),
+            (
+                "human",
+                f"Please summarize this JSON object: {pdf_information.json()}",
+            ),
+        ]
+
+        response = self.model.invoke(messages)
+
+        return response.content

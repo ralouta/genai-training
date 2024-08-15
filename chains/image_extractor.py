@@ -1,8 +1,7 @@
+import json
 import base64
 from langchain_core.messages import HumanMessage
 from langchain_core.output_parsers import JsonOutputParser
-
-
 from models.image_information import ImageInformation
 
 
@@ -59,4 +58,24 @@ class ImageExtractChain:
         return image_base64
 
     def extract_from_image(self):
-        return self.chain.invoke(self.prompt_messages)
+        response = self.chain.invoke(self.prompt_messages)
+        return ImageInformation(**response)
+
+    def format_for_attachment(self, image_information):
+        prompt = """
+        Given a JSON object that describes an image, summarize the information in English. 
+        Do not mention the JSON object or its keys in your summary.
+        Do not refer to the JSON object at all in your summary.
+        Do not provide any other commentary or information.
+        """
+        messages = [
+            ("system", prompt),
+            (
+                "human",
+                f"Please summarize this JSON object: {image_information.json()}",
+            ),
+        ]
+
+        response = self.model.invoke(messages)
+
+        return response.content
