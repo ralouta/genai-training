@@ -9,4 +9,5 @@ pypdf
 docx2txt
 PyMuPDF
 arcgis
-pandasai
+typing_extensions==4.9.0
+pandasai==2.2.14
