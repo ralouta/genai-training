@@ -6,9 +6,10 @@ from models.pdf_information import PDFInformation
 
 class PDFExtractChain:
 
-    def __init__(self, model, pdf_path):
+    def __init__(self, model, pdf_path, output_model=PDFInformation):
         self.model = model
-        self.parser = JsonOutputParser(pydantic_object=PDFInformation)
+        self.output_model = output_model
+        self.parser = JsonOutputParser(pydantic_object=output_model)
         self.pdf_text = self.extract_text_from_pdf(pdf_path)
 
         self.vision_prompt = """
@@ -53,7 +54,7 @@ class PDFExtractChain:
 
     def extract_from_pdf(self):
         response = self.chain.invoke(self.prompt_messages)
-        return PDFInformation(**response)
+        return self.output_model(**response)
 
     def format_for_attachment(self, pdf_information):
         prompt = """

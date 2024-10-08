@@ -7,9 +7,10 @@ from models.image_information import ImageInformation
 
 class ImageExtractChain:
 
-    def __init__(self, model, image_path):
+    def __init__(self, model, image_path, output_model=ImageInformation):
         self.model = model
-        self.parser = JsonOutputParser(pydantic_object=ImageInformation)
+        self.output_model = output_model
+        self.parser = JsonOutputParser(pydantic_object=self.output_model)
         self.local_image = self.load_image(image_path)
         self.image_content_type = self.get_image_file_type(image_path)
 
@@ -59,7 +60,7 @@ class ImageExtractChain:
 
     def extract_from_image(self):
         response = self.chain.invoke(self.prompt_messages)
-        return ImageInformation(**response)
+        return self.output_model(**response)
 
     def format_for_attachment(self, image_information):
         prompt = """
