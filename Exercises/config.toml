@@ -1,16 +1,16 @@
 # se led training configuration
 [[configs]]
-type = "azure_llm"
-model_name = "gpt-4o"
-deployment_name = "gpt-4o"
-api_endpoint = "https://ist-apim-aoai.azure-api.net/load-balancing/gpt-4o"
-api_key = "2ace346327e444fca00da0b2945e3b3f"
-api_version = "2024-06-01"
+type = ""
+model_name = ""
+deployment_name = ""
+api_endpoint = ""
+api_key = ""
+api_version = ""
 # mini
 [[configs]]
-type = "azure_llm"
-model_name = "gpt-4o-mini"
-deployment_name = "gpt-4o-mini"
-api_endpoint = "https://ist-apim-aoai.azure-api.net/load-balancing/gpt-4o-mini"
-api_key = "ba235e3974be4b61b3de0cdb520fafee"
-api_version = "2024-06-01"
+type = ""
+model_name = ""
+deployment_name = ""
+api_endpoint = ""
+api_key = ""
+api_version = ""
