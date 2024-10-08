@@ -9,6 +9,6 @@ langchain_chroma==0.1.4
 gpt4all==2.8.2
 pypdf==5.0.0
 docx2txt==0.8
-PyMuPDF==1.24.10
+PyMuPDF==1.24.9
 arcgis==2.3.1
 pandasai==2.0.24
