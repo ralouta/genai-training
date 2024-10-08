@@ -5,15 +5,9 @@ REM Save the current directory (the directory where the batch file was run from)
 set "ORIGINAL_DIR=%CD%"
 echo Original directory: "%ORIGINAL_DIR%"
 
-
 REM Get the current user's profile directory
 set USERPROFILE=%USERPROFILE%
 
-REM Construct the path to the conda envs directory
-set CONDA_ENVS_PATH=%USERPROFILE%\AppData\Local\ESRI\conda\envs
-
-REM Change directory to the conda envs directory
-cd /d "%CONDA_ENVS_PATH%"
 
 setlocal enabledelayedexpansion
 
@@ -36,20 +30,6 @@ if not exist "!arcgispromodified_path!" (
 )
 
 REM Activate the arcgispro-py3 environment
-call "!arcgispromodified_path!"
-
-REM Clone the existing arcgispro-py3 environment to genai-py3
-call conda create --name genai-auto-py3 --clone arcgispro-py3
-
-call proswap genai-auto-py3
-
-REM  Change back to the original directory
-cd /d "%ORIGINAL_DIR%"
-
-:: Print the current directory to verify
-echo Back in directory: %CD%
-
-REM Install dependencies from requirements.txt
-call pip install -r requirements.txt
+call "!arcgispromodified_path!" conda create --name genai-auto-py3 --clone arcgispro-py3
 
 endlocal
